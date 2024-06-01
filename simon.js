@@ -1,34 +1,29 @@
 var color = ["one", "two", "three", "four"];
-var gamePattern = [];//to store game set random color order
-var userClickedPattern = [];// to store user click resets each round
- // to control the fast execution of the functions
+var gamePattern = [];
+var userClickedPattern = [];
 var counter = 0;
 var level = 0;
 
 function gameClick() {
-        level++;
-        $("#title").text("level "+ level);
-        var randNum = Math.floor(Math.random()*4); //
-        gamePattern.push(color[randNum]);
-        console.log("game pattern = "+ gamePattern);
-        $("#"+color[randNum]).css("opacity",0.3);
-        var sound = new Audio("sounds/"+color[randNum]+".mp3");
-        sound.play();
-        setTimeout(function() {
-            $("#"+color[randNum]).css("opacity",1);
-        }, 1000);
-        userClickedPattern = [];
-        
+    level++;
+    $("#title").text("level "+ level);
+    var randNum = Math.floor(Math.random()*4); //
+    gamePattern.push(color[randNum]);
+    console.log("game pattern = "+ gamePattern);
+    $("#"+color[randNum]).css("opacity",0.3);
+    var sound = new Audio("sounds/"+color[randNum]+".mp3");
+    sound.play();
+    setTimeout(function() {
+        $("#"+color[randNum]).css("opacity",1);
+    }, 1000);
+    userClickedPattern = [];
 }
 
-
 function userClick() {
-
     $(".btn").click(function(){
         var userChosenColor = $(this).attr("id");
         userClickedPattern.push(userChosenColor);
         console.log("user clicked pattern " + userClickedPattern);
-      // playSound(userChosenColor);
         animatePress(userChosenColor);
         checkAnswer(userClickedPattern.length-1);
     });
@@ -71,36 +66,16 @@ function animatePress(choice) {
     sound.play();
 }
 userClick();
-// document.addEventListener("keydown", function() {
-//     counter++;
-//     if(counter == 1){
-//         console.log("HHIiiiiiiiiii");
-//         gameClick();
-//     }  
-// });    
+  
 
 $("#start-button").click(function(){
     counter++;
-    // var rand = Math.floor(Math.random()*4);
-    // $("#start-button").css("opacity",0.3);
-
-    // var sound = new Audio("sounds/"+color[rand]+".mp3");
-    // sound.play();
-    // setTimeout(function() {
-    //     $("#start-button").css("opacity",1);
-    // }, 100);
+    
     $("#start-button").css("display", "none");
     if(counter == 1){
         console.log("HHIiiiiiiiiii");
         gameClick();
     }  
 });
-// function start() {
-//     if (gamePattern.length > userClickedPattern.length){ 
-//         userClick();
-//     }else if (gamePattern.length == userClickedPattern.length){
-//         gameClick();
-//     }
-    
-// }
+
 
