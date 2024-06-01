@@ -5,8 +5,8 @@ body{
 h1{
     font-family: 'Press Start 2P', cursive;
     font-size: 3rem;
-    margin:  5%;
-    margin-bottom: 50px;
+    
+
     color: #FF006E;
 }
 .container{
@@ -21,6 +21,22 @@ h1{
     width: 200px;
     margin: 25px;
     border-radius: 25px;
+}
+
+#start-button:hover{
+    color: white;
+}
+.btn:hover{
+    opacity: 0.9;
+}
+#start-button{
+    text-align: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3rem;
+    border-radius: 25px;
+    background-color: #FF006E;
+    border: none !important;
 }
 #one{
     background-color: #8338EC;
@@ -43,21 +59,7 @@ h1{
     
     opacity: 0.8;
 }
-#start-button:hover{
-    color: white;
-}
-.btn:hover{
-    opacity: 0.9;
-}
-#start-button{
-    text-align: center;
-    align-items: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 3rem;
-    border-radius: 25px;
-    background-color: #FF006E;
-    border: none !important;
-}
+
 @media (max-width: 460px) {
     .h1{
         font-size: 15px;
