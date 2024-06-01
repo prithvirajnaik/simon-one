@@ -1,7 +1,6 @@
 var color = ["one", "two", "three", "four"];
-var gamePattern = [];//to store game set random color order
-var userClickedPattern = [];// to store user click resets each round
- // to control the fast execution of the functions
+var gamePattern = [];
+var userClickedPattern = [];
 var counter = 0;
 var level = 0;
 
@@ -12,12 +11,12 @@ function gameClick() {
         gamePattern.push(color[randNum]);
         console.log("game pattern = "+ gamePattern);
         $("#"+color[randNum]).css("opacity",0.3);
+        var sound = new Audio("sounds/"+color[randNum]+".mp3");
+        sound.play();
         setTimeout(function() {
             $("#"+color[randNum]).css("opacity",1);
         }, 1000);
-        userClickedPattern = [];
-        var sound = new Audio("sounds/"+color[randNum]+".mp3");
-        sound.play();
+        userClickedPattern = [];       
 }
 
 
@@ -27,7 +26,6 @@ function userClick() {
         var userChosenColor = $(this).attr("id");
         userClickedPattern.push(userChosenColor);
         console.log("user clicked pattern " + userClickedPattern);
-      // playSound(userChosenColor);
         animatePress(userChosenColor);
         checkAnswer(userClickedPattern.length-1);
     });
@@ -49,7 +47,8 @@ function  checkAnswer(answer){
         setTimeout(function() {
             $("body").removeClass("game-over");
         }, 200);
-        $("#title").text("Game Over, Press Any Key to Restart");
+        $("#title").text("Game Over, Try Again");
+        $("#start-button").css("display", "inline-block");
         startOver();
     }
 }
@@ -69,21 +68,15 @@ function animatePress(choice) {
     sound.play();
 }
 userClick();
-document.addEventListener("keydown", function() {
+
+$("#start-button").click(function(){
     counter++;
+
+    $("#start-button").css("display", "none");
     if(counter == 1){
         console.log("HHIiiiiiiiiii");
         gameClick();
     }  
-});    
+});
 
-
-// function start() {
-//     if (gamePattern.length > userClickedPattern.length){ 
-//         userClick();
-//     }else if (gamePattern.length == userClickedPattern.length){
-//         gameClick();
-//     }
-    
-// }
 
