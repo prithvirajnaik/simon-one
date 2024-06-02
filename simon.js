@@ -3,7 +3,7 @@ var gamePattern = [];
 var userClickedPattern = [];
 var counter = 0;
 var level = 0;
-
+var rules = "rekjakjr";
 function gameClick() {
     level++;
     $("#title").text("level "+ level);
@@ -66,8 +66,9 @@ function animatePress(choice) {
     sound.play();
 }
 userClick();
-  
-
+$("#Rules").click(function() {
+    $("#msg").toggle();
+})
 $("#start-button").click(function(){
     counter++;
     

@@ -8,9 +8,23 @@
 </head>
 <body>
     <h1 id="title">Press a key to Start </h1>
-      
-        <button id = "start-button" type="button" > start </button>
-   
+    <div id="top-btn">
+        <button id = "start-button" class="top-button" > start </button>
+        <button id = "Rules" class="top-button"> &#8505;</button>
+        <div id="msg">
+            <p id="msg-text">
+                The goal is to correctly repeat an increasingly long sequence of lights and sounds.<br>
+                Simon will play a sequence starting with one tone and light.<br>
+                You must press the buttons in the same order as Simon's sequence. <br>
+                After each correct sequence, Simon will add one more tone and light to the sequence. <br>
+                The sequence continues to grow as long as you keep repeating it correctly. <br>
+                Wait for Simon to finish the sequence before pressing any buttons. <br>
+                Repeat the sequence exactly as it was shown. <br>
+                If you press the wrong button or the wrong order, Simon will emit a "fail" sound and the game will end.                
+
+            </p>
+        </div>
+    </div>
     <div>
         <div class="row">
             <div id="one" class="btn one">
